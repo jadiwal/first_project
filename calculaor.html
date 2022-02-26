@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        .container {
+
+            background-color: burlywood;
+            height: 600px;
+            width: 400px;
+            margin: auto;
+            padding: 10px 20px;
+            border: 3px solid rgb(65, 52, 36);
+            border-top-left-radius: 305px;
+            border-bottom-right-radius: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            top: 30%;
+            left: 37%;
+            position: absolute;
+            opacity: 0.7;
+
+        }
+
+        .container h3 {
+            color: white;
+            background-color: black;
+            margin-bottom: 60px;
+            padding: 12px 12px;
+
+        }
+
+        #first {
+            border: 3px solid black;
+            border-radius: 10px;
+            background-color: rgb(174, 219, 202);
+            color: #000000;
+            margin: 20px 15px;
+            padding: 15px 35px;
+            height: 12px;
+            font-size: 20px;
+
+           
+        }
+
+       
+
+        #second {
+            border: 3px solid black;
+            border-radius: 10px;
+            background-color: rgb(117, 231, 107);
+            color: rgb(0, 0, 0);
+            margin: 20px 15px;
+            padding: 15px 35px;
+            height: 12px;
+            font-size: 20px;
+        }
+
+        #result {
+            border: 3px solid black;
+            border-radius: 10px;
+            background-color: rgb(117, 231, 107);
+            color: rgb(0, 0, 0);
+            margin: 20px 15px;
+            padding: 15px 35px;
+            height: 12px;
+            font-size: 20px;
+            animation-name: res;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+        }
+        
+        @keyframes res{
+            from{
+                width:0px;
+            }
+            to{
+                width: 200px;
+            }
+        }
+
+        #op {
+            background-color: firebrick;
+            height: 40px;
+            width: 50px;
+            color: white;
+            font-size: 40px;
+            border: 3px solid black;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+
+
+        }
+        button{
+            background-color: grey;
+    color: black;
+    font-size: 25px;
+    border: 2px solid black;
+    border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h3>Demo</h3>
+        <input type="number" name="first" id="first" step="any" />
+        <select id="op">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">x</option>
+            <option value="/">/</option>
+        </select>
+        <input type="number" name="second" id="second" step="any" />
+
+        <button onclick="cal()"> Calculate </button>
+        <input type="text" name="" id="result" readonly="" placeholder="See Result Here"/>
+
+    </div>
+</body>
+<script type="text/javascript">
+    function cal() {
+        var opr1 = document.getElementById('first').value;
+        var opr2 = document.getElementById('second').value;
+        var op = document.getElementById('op').value;
+
+        if (op == '+') {
+            var result = parseInt(opr1) + parseInt(opr2);
+        }
+        if (op == '-') {
+            var result = parseInt(opr1) - parseInt(opr2);
+        }
+        if (op == '*') {
+            var result = parseInt(opr1) * parseInt(opr2);
+        }
+        if (op == '/') {
+            var result = parseInt(opr1) / parseInt(opr2);
+        }
+        document.getElementById('result').value = result + " " + "is your answer";
+
+    }
+</script>
+
+</html>
